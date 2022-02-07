@@ -4,10 +4,11 @@
 #include <memory>
 #include <typeindex>
 #include <functional>
+#include <iostream>
 
 using namespace std;
 
-struct EXPORT_EVENTBUS Any
+struct Any
 {
 	Any(void) : m_tpIndex(std::type_index(typeid(void))){}
 	Any(Any& that) : m_ptr(that.Clone()), m_tpIndex(that.m_tpIndex) {}
@@ -29,7 +30,7 @@ struct EXPORT_EVENTBUS Any
 	{
 		if (!Is<U>())
 		{
-            qDebug() << " can  not cast " << typeid(U).name() << " to " << m_tpIndex.name() << endl;
+            cout << " can  not cast " << typeid(U).name() << " to " << m_tpIndex.name() << endl;
 			throw bad_cast();
 		}
 		auto derived = dynamic_cast<Derived<U>*> (m_ptr.get());
