@@ -5,10 +5,11 @@
 #include <typeindex>
 #include <functional>
 #include <iostream>
+//BEGIN_TL_NAMESPACE
 
 using namespace std;
 
-struct Any
+struct  Any
 {
 	Any(void) : m_tpIndex(std::type_index(typeid(void))){}
 	Any(Any& that) : m_ptr(that.Clone()), m_tpIndex(that.m_tpIndex) {}
@@ -25,6 +26,7 @@ struct Any
 		return m_tpIndex == type_index(typeid(U));
 	}
 
+
 	template<class U >
 	U& AnyCast()
 	{
@@ -36,6 +38,15 @@ struct Any
 		auto derived = dynamic_cast<Derived<U>*> (m_ptr.get());
 		return derived->m_value;
 	}
+
+    // template<class U >
+    // U& fCast()
+    // {
+    //     // warning :
+    //     // @todo : reinterpret_cast<> == static_cast<> ;
+    //     auto  derived = reinterpret_cast<Derived<U>*>(m_ptr.get());
+    //     return derived->m_value;
+    // }
 
 	Any& operator=(const Any & a)
 	{
@@ -80,5 +91,7 @@ private:
 	BasePtr m_ptr;
 	type_index m_tpIndex;
 };
+
+//END_TL_NAMESPACE
 
 #endif
