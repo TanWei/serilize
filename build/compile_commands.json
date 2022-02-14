@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/leilei/MyWorkSpace/CPPSpace/serilize/build",
-  "command": "/usr/bin/clang++    -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2   -std=gnu++1z -o CMakeFiles/serilize.dir/main.cpp.o -c /Users/leilei/MyWorkSpace/CPPSpace/serilize/main.cpp",
-  "file": "/Users/leilei/MyWorkSpace/CPPSpace/serilize/main.cpp"
-}
-]
