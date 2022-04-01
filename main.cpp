@@ -15,9 +15,13 @@ struct B : public A
     map<string, Any> m_s2any;
 };
 
+priority_queue<ListNode *, vector<ListNode *>, >
 int main()
 {
+    priority_queue<ListNode *, vector<ListNode *>, >
     map<string, Any> map1;
+    map1.insert(make_pair("2das", 1));
+    map1.insert(make_pair("fgh", "9527asd"));
     int a='1';
     Any a1='a';
     Any a2 = 1;
